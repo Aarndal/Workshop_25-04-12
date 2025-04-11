@@ -1,4 +1,6 @@
-﻿internal interface IAmCollectible
+﻿using UnityEngine;
+
+internal interface IAmCollectible
 {
-    bool Collect();
+    bool Collect(Transform collector);
 }

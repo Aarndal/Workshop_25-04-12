@@ -55,7 +55,7 @@ public class Shoot : MonoBehaviour
             _selectedProjectile = _loadedProjectiles.Length - 1;
     }
 
-    private void ShootProjectile()
+    public void ShootProjectile()
     {
 
         Projectile projectile = Instantiate<Projectile>(_loadedProjectiles[_selectedProjectile], transform.position, transform.rotation);

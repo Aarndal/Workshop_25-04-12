@@ -61,7 +61,7 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out IAmDamageable target))
             target.TakeDamage(_projectileData.Damage);
 
-        if (_projectileData.DestroyOnContact && collision.gameObject != gameObject)
+        if (_projectileData.DestroyOnContact && collision.gameObject != gameObject && collision.gameObject != gameObject.transform.parent)
             DestroyProjectile();
     }
 
@@ -70,7 +70,7 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out IAmDamageable target))
             target.TakeDamage(_projectileData.Damage);
 
-        if (_projectileData.DestroyOnContact && collision.gameObject != gameObject)
+        if (_projectileData.DestroyOnContact && collision.gameObject != gameObject && collision.gameObject != gameObject.transform.parent)
             DestroyProjectile();
     }
 

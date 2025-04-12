@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BulletData
   m_EditorClassIdentifier: 
   DestroyOnContact: 1
-  MaxLifeTime: 10
+  MaxLifeTime: 1
   Velocity: 0.1
-  Mass: 0.01
+  Mass: 10
   Damage: 100

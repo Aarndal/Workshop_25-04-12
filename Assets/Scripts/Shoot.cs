@@ -55,12 +55,18 @@ public class Shoot : MonoBehaviour
             _selectedProjectile = _loadedProjectiles.Length - 1;
     }
 
-    private void ShootProjectile()
+    public void ShootProjectile()
     {
+        //Vector3 direction = new();
 
-        Projectile projectile = Instantiate<Projectile>(_loadedProjectiles[_selectedProjectile], transform.position, transform.rotation);
+        Projectile projectile = Instantiate(_loadedProjectiles[_selectedProjectile], transform.position, transform.rotation);
 
-        projectile.Rigidbody.AddForce(projectile.ProjectileData.Velocity * gameObject.transform.forward, ForceMode.VelocityChange);
+        //if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo))
+        //    direction = (hitInfo.transform.position - transform.position).normalized;
+        //else
+        //    direction = transform.forward;
+
+        projectile.Rigidbody.AddForce(projectile.ProjectileData.Mass * projectile.ProjectileData.Velocity * transform.forward, ForceMode.Impulse);
     }
 
 }

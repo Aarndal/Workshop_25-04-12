@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -27,6 +28,16 @@ public class Projectile : MonoBehaviour
             _rigidbody = GetComponentInChildren<Rigidbody>();
             _rigidbody = _rigidbody != null ? _rigidbody : gameObject.AddComponent<Rigidbody>();
         }
+    }
+
+    private void OnEnable()
+    {
+        _projectileData.DataChanged += OnDataChanged;
+    }
+
+    private void OnDataChanged()
+    {
+        _rigidbody.mass = _projectileData.Mass;
     }
 
     private void Start()

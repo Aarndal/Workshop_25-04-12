@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Projectile", menuName = "Scriptable Objects/Projectile")]
@@ -17,4 +18,6 @@ public class SOProjectile : ScriptableObject
 
     [Min(1)]
     public int Damage = 1;
+
+    public event Action DataChanged;
 }

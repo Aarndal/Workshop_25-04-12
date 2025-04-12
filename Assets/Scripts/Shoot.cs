@@ -38,9 +38,10 @@ InputAction _attack;
 
     private void ShootProjectile()
     {
-        Projectile projectile = Instantiate<Projectile>(_loadedProjectiles[_selectedProjectile], transform.position + Vector3.forward * _loadedProjectiles[_selectedProjectile].Collider.bounds.max.z, transform.rotation);
 
-        projectile.Rigidbody.AddRelativeForce(projectile.Rigidbody.mass * projectile.ProjectileData.Velocity * gameObject.transform.forward, ForceMode.Impulse);
+        Projectile projectile = Instantiate<Projectile>(_loadedProjectiles[_selectedProjectile], transform.position, transform.rotation);
+
+        projectile.Rigidbody.AddForce(projectile.Rigidbody.mass * projectile.ProjectileData.Velocity * gameObject.transform.forward, ForceMode.Impulse);
     }
 
 }

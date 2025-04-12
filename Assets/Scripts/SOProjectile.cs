@@ -14,4 +14,7 @@ public class SOProjectile : ScriptableObject
 
     [Min(0.001f)]
     public float Mass = 0.01f;
+
+    [Min(1)]
+    public int Damage = 1;
 }

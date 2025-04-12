@@ -47,13 +47,19 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(_projectileData.DestroyOnContact)
+        if (collision.gameObject.TryGetComponent(out IAmDamageable target))
+            target.TakeDamage(_projectileData.Damage);
+
+        if (_projectileData.DestroyOnContact && collision.gameObject != gameObject)
             DestroyProjectile();
     }
 
     private void OnCollisionStay(Collision collision)
     {
-        if (_projectileData.DestroyOnContact)
+        if (collision.gameObject.TryGetComponent(out IAmDamageable target))
+            target.TakeDamage(_projectileData.Damage);
+
+        if (_projectileData.DestroyOnContact && collision.gameObject != gameObject)
             DestroyProjectile();
     }
 
